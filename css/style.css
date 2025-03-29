@@ -326,8 +326,9 @@ header, footer {
   padding: 1rem;
   margin-top: 2rem;
   font-size: 0.85rem;
-  color: var(--text-color, #333);
-  opacity: 0.7;
+  background-color: transparent;
+  color: #222; /* strong dark default */
+  font-weight: 500;
 }
 
 .footer-link {
@@ -337,9 +338,35 @@ header, footer {
 }
 
 .footer-link:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 body.dark footer {
   color: #ccc;
+}
+
+/* Light Theme + Time-based */
+body[data-theme="light"] footer {
+  color: #222;
+}
+
+/* Dark Theme */
+body[data-theme="dark"] footer {
+  color: #eee;
+}
+
+/* Happy Mood - light or dark */
+body[data-mood="happy"] footer {
+  color: #8a5700; /* rich golden-brown */
+}
+body[data-theme="dark"][data-mood="happy"] footer {
+  color: #ffeaa7; /* soft gold for dark mode */
+}
+
+/* Calm Mood - light or dark */
+body[data-mood="calm"] footer {
+  color: #0d3a4d; /* deep teal */
+}
+body[data-theme="dark"][data-mood="calm"] footer {
+  color: #b2f1f1; /* light aqua */
 }
