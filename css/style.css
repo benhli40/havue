@@ -1,0 +1,345 @@
+/* ===== Reset & Base Styles ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ===== Time-based Backgrounds ===== */
+body.time-sunrise {
+  background: url('../img/sunrise.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+body.time-morning {
+  background: url('../img/morning.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+body.time-noon {
+  background: url('../img/noon.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+body.time-afternoon {
+  background: url('../img/afternoon.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+body.time-evening {
+  background: url('../img/evening.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+body.time-night {
+  background: url('../img/night.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* ===== General Styles ===== */
+.container {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.widget {
+  background-color: var(--widget-bg);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Quote fade-in animation */
+#quote, #author {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+#quote.fade-in, #author.fade-in {
+  opacity: 1;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+p {
+  font-size: 14px;  
+  line-height: 1.5;
+}
+
+/* Nav container */
+#navbar {
+  background-color: var(--nav-bg, #f0f0f0);
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #ccc;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* center content */
+  flex-wrap: wrap;
+}
+
+#nav-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--nav-text, #333);
+  transition: transform 0.3s ease;
+}
+
+#nav-toggle.rotate {
+  transform: rotate(90deg);
+}
+
+#nav-links {
+  display: none;
+  flex-direction: column;
+  background-color: var(--nav-bg, #f0f0f0);
+  width: 100%;
+  padding: 1rem;
+  border-top: 1px solid #ccc;
+  position: static; /* 👈 now it pushes content down */
+}
+
+#nav-links.show {
+  display: flex;
+}
+
+#navbar + .container {
+  margin-top: 0.5rem;
+}
+
+#nav-links a {
+  text-decoration: none;
+  color: var(--nav-text, #333);
+  font-weight: bold;
+}
+
+#nav-links a:hover {
+  color: var(--accent, #007bff);
+}
+
+/* Dark mode styles */
+body.dark #navbar {
+  background-color: #1c1c2a;
+  border-bottom: 1px solid #333;
+}
+
+body.dark #nav-links a {
+  color: #ddd;
+}
+
+body.dark #nav-links a:hover {
+  color: #fff;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  #navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #nav-toggle {
+    display: block;
+    margin-left: 1rem;
+  }
+
+  #nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-top: 1px solid #ccc;
+    background-color: var(--nav-bg, #f0f0f0);
+    position: static; /* 🚨 This is the magic */
+  }
+
+  #nav-links.show {
+    display: flex; /* Now it takes up space and pushes content down */
+  }
+
+  body.dark #nav-links {
+    background-color: #1c1c2a;
+  }
+}
+
+/* Dark mode overrides */
+body.dark #navbar {
+  background-color: #1c1c2a;
+  border-bottom: 1px solid #333;
+}
+
+body.dark #navbar a {
+  color: #ddd;
+}
+
+body.dark #navbar a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+h2 {
+  margin-bottom: 0.75rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+input[type="text"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 90%;
+  margin-bottom: 0.5rem;
+}
+
+/* ===== Theme Variables ===== */
+:root {
+  --bg-color: #f0f0f0;
+  --text-color: #222;
+  --widget-bg: #ffffff;
+}
+
+html[data-theme="dark"] {
+  --bg-color: #1e1e2f;
+  --text-color: #f0f0f0;
+  --widget-bg: #2c2c3e;
+}
+
+/* ===== Mood Overlays ===== */
+html[data-mood="happy"] {
+  --bg-color: #fffbe0;
+  --widget-bg: #fff0b3;
+}
+
+html[data-theme="dark"][data-mood="happy"] {
+  --bg-color: #332c1d;
+  --text-color: #ffe18f;
+  --widget-bg: #4a3b1f;
+}
+
+html[data-mood="calm"] {
+  --bg-color: #e0f7f9;
+  --widget-bg: #cde8eb;
+}
+
+html[data-theme="dark"][data-mood="calm"] {
+  --bg-color: #1f2b2c;
+  --text-color: #a8d8d8;
+  --widget-bg: #2d3f40;
+}
+
+/* ===== Task List Styling ===== */
+.task-input {
+  display: flex;
+  gap: 0.5rem;
+}
+
+#task-list {
+  list-style: none;
+  margin-top: 0.5rem;
+  padding: 0;
+}
+
+#task-list li {
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#task-list li.completed span {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+#task-list button {
+  background: none;
+  color: crimson;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border: none;
+}
+
+[data-theme="dark"] {
+  background-color: #1e1e2f;
+  color: #f0f0f0;
+}
+
+[data-theme="light"] {
+  background-color: #f8f8f8;
+  color: #222;
+}
+
+[data-mood="happy"] {
+  --accent: #ffcc00;
+  background-image: linear-gradient(120deg, #fffbe6, #ffeeba);
+}
+
+[data-mood="calm"] {
+  --accent: #88c7c7;
+  background-image: linear-gradient(120deg, #e0f7fa, #c8e6e6);
+}
+
+#theme-widget button {
+  margin-bottom: 0.5rem;
+}
+
+#mood-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+header, footer {
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: var(--text-color, #333);
+  opacity: 0.7;
+}
+
+.footer-link {
+  color: var(--accent, #007bff);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+body.dark footer {
+  color: #ccc;
+}

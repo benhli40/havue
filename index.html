@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-mood="default">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Havue - Have a piece of home, with a view</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <a id="top"></a>
+    <header id="header">
+      <h1>Havue</h1>
+      <p>Your home on the internet with a view.</p>
+      <nav id="navbar">
+        <button id="nav-toggle" aria-label="Toggle navigation">☰</button>
+        <ul id="nav-links">
+          <li><a href="#time-widget">Time</a></li>
+          <li><a href="#weather-widget">Weather</a></li>
+          <li><a href="#quote-widget">Quote</a></li>
+          <li><a href="#task-widget">Tasks</a></li>
+          <li><a href="#theme-widget">Theme</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <!-- Time & Date -->
+      <section id="time-widget" class="widget">
+        <h2 id="greeting">Good day, Benjamin</h2>
+        <div id="datetime"></div>
+      </section>
+
+      <!-- Weather -->
+      <section id="weather-widget" class="widget">
+        <h2>Weather</h2>
+        <div id="weather-info">Loading weather...</div>
+        <input type="text" id="weather-city-input" placeholder="Enter city..." />
+        <button id="weather-search-btn">Search</button>
+        <div id="unit-selector">
+          <label><input type="radio" name="units" value="metric" checked /> Metric (°C)</label>
+          <label><input type="radio" name="units" value="imperial" /> Imperial (°F)</label>
+        </div>
+      </section>
+
+      <!-- Inspirational Quote -->
+      <section id="quote-widget" class="widget">
+        <h2>Daily Inspiration</h2>
+        <blockquote id="quote">"Loading quote..."</blockquote>
+        <cite id="author"></cite>
+        <button id="refresh-quote">New Quote</button>
+      </section>
+
+
+      <!-- Tasks -->
+      <section id="task-widget" class="widget">
+        <h2>Tasks</h2>
+        <div class="task-input">
+          <input type="text" id="new-task-input" placeholder="Add a new task" />
+          <button id="add-task-btn">Add</button>
+        </div>
+        <ul id="task-list"></ul>
+      </section>
+
+      <!-- Mood & Theme Toggle -->
+      <section id="theme-widget" class="widget">
+        <h2>Theme</h2>
+        <button id="toggle-theme">Toggle Dark/Light</button>
+        <div id="mood-buttons">
+          <button data-mood="default">🕒 Time-Based</button>
+          <button data-mood="happy">😊 Happy</button>
+          <button data-mood="calm">😌 Calm</button>
+        </div>
+      </section>
+
+      <footer id="footer">
+        <p>© 2025 Benjamin Liles · <a href="#top" class="footer-link">Havue</a> — Your home on the internet with a view.</p>
+      </footer>      
+    </main>
+
+    <script src="js/time.js"></script>
+    <script src="js/weather.js"></script>
+    <script src="js/quotes.js"></script>
+    <script src="js/tasks.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
