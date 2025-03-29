@@ -328,11 +328,11 @@ header, footer {
   font-size: 0.85rem;
   background-color: transparent;
   color: #222; /* strong dark default */
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .footer-link {
-  color: var(--accent, #007bff);
+  color: var(--accent, #88c7c7);
   text-decoration: none;
   font-weight: bold;
 }
@@ -352,7 +352,7 @@ body[data-theme="light"] footer {
 
 /* Dark Theme */
 body[data-theme="dark"] footer {
-  color: #eee;
+  color: #e0e0e0;
 }
 
 /* Happy Mood - light or dark */
@@ -360,7 +360,7 @@ body[data-mood="happy"] footer {
   color: #8a5700; /* rich golden-brown */
 }
 body[data-theme="dark"][data-mood="happy"] footer {
-  color: #ffeaa7; /* soft gold for dark mode */
+  color: #e0e0e0; /* soft gold for dark mode */
 }
 
 /* Calm Mood - light or dark */
@@ -368,5 +368,5 @@ body[data-mood="calm"] footer {
   color: #0d3a4d; /* deep teal */
 }
 body[data-theme="dark"][data-mood="calm"] footer {
-  color: #b2f1f1; /* light aqua */
+  color: #e0e0e0; /* light aqua */
 }
